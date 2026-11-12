@@ -203,7 +203,9 @@ want it floatier? drop Damping to like 0.85 and bump Reach to 1.3. want it calme
 
 ## In Motion
 
-Motion installs this from its Libraries page (Home) as **3D UI**. In the timeline, LIBRARIES > 3D UI previews
-each fly-in preset in the Studio viewport and saves the one you pick on the clip, along with a button feel.
-In a game, `project:Panel3D("Clip 1")` puts the ScreenGui on a panel with those settings and gives back the panel
-and the clip.
+Motion installs this from its Libraries page (Home) as **3D UI** and adds one easing style, **Physics**,
+that you put on keyframes like any other easing. Between two keys the value is driven by this library's
+spring (the same 240 Hz integrator, with the stiffness and damping from its presets and `Ui3d.Tuning`), so
+it overshoots and settles instead of following a fixed curve, and it always lands exactly on the next key.
+On Position keys the path curves the way a panel swirls in, and the object leans into its movement
+(bank) on its Rotation. It plays inside the normal clip, in the editor and in the game.
